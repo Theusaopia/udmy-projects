@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.personal</groupId>
-    <artifactId>teste-jfx</artifactId>
+    <artifactId>TesteJavaFX</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>teste-jfx</name>
+    <name>TesteJavaFX</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.personal.testejfx/com.personal.testejfx.Main</mainClass>
+                            <mainClass>com.personal.testejavafx/com.personal.testejavafx.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
