@@ -1,6 +1,8 @@
 package com.personal.testejavafx;
 
+import com.personal.testejavafx.util.Alerts;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 public class ViewController {
@@ -9,6 +11,6 @@ public class ViewController {
 
     @FXML
     public void onMyButtonClick() {
-        System.out.println("Olá");
+        Alerts.showAlert("Alerta!", "Alerta do Matheus", "Esteja alertado", Alert.AlertType.INFORMATION);
     }
 }
