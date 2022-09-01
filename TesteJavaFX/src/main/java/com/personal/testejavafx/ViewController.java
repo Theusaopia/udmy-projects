@@ -1,13 +1,18 @@
 package com.personal.testejavafx;
 
 import com.personal.testejavafx.util.Alerts;
+import com.personal.testejavafx.util.constraints.Constraints;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class ViewController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ViewController implements Initializable {
 
     @FXML
     private TextField txtNumber1;
@@ -37,5 +42,14 @@ public class ViewController {
         catch (NumberFormatException ex) {
             Alerts.showAlert("Error!", null, ex.getMessage(), Alert.AlertType.ERROR);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Constraints.setTextFieldInteger(txtNumber1);
+        Constraints.setTextFieldDouble(txtNumber2);
+
+        Constraints.setTextFieldMaxLength(txtNumber1, 3);
+        Constraints.setTextFieldMaxLength(txtNumber2, 3);
     }
 }
