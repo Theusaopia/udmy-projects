@@ -5,4 +5,7 @@ module com.udemy.javafxdemoapp {
 
     opens com.udemy.javafxdemoapp to javafx.fxml;
     exports com.udemy.javafxdemoapp;
+
+    opens com.udemy.javafxdemoapp.controller to javafx.fxml;
+    exports com.udemy.javafxdemoapp.controller;
 }
