@@ -48,4 +48,11 @@ public class UserResource {
 
         return ResponseEntity.noContent().build();
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
+        user = service.update(id, user);
+
+        return ResponseEntity.ok(user);
+    }
 }
