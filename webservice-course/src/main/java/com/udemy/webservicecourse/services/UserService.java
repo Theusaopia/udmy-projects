@@ -2,6 +2,7 @@ package com.udemy.webservicecourse.services;
 
 import com.udemy.webservicecourse.entities.User;
 import com.udemy.webservicecourse.repositories.UserRepository;
+import com.udemy.webservicecourse.services.exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class UserService {
     public User findById(Long id) {
         Optional<User> obj = repo.findById(id);
 
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User obj) {
