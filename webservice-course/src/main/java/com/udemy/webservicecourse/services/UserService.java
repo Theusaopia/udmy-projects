@@ -2,7 +2,10 @@ package com.udemy.webservicecourse.services;
 
 import com.udemy.webservicecourse.entities.User;
 import com.udemy.webservicecourse.repositories.UserRepository;
+import com.udemy.webservicecourse.services.exceptions.DatabaseException;
 import com.udemy.webservicecourse.services.exceptions.ResourceNotFoundException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,7 +35,15 @@ public class UserService {
     }
 
     public void delete(Long id) {
-        repo.deleteById(id);
+        try {
+            repo.deleteById(id);
+        }
+        catch (EmptyResultDataAccessException ex) {
+            throw new ResourceNotFoundException(id);
+        }
+        catch (DataIntegrityViolationException ex) {
+            throw new DatabaseException(ex.getMessage());
+        }
     }
 
     public User update(Long id, User obj) {
